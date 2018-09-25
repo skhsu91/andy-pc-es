@@ -11,5 +11,7 @@ This assignment's purpose is to successfully upload the given CSV file to Elasti
 
 3. The API Gateway allows for the ability to essentially build application backends quickly that is also scalable. There is no native support for AWS ElasticSearch at this moment, so for the sake of this exercise I used a HTTP integration type that would map directly to my ElasticSearch's endpoints. Another possible option would be to use a Lambda Function and invoke any Java method that would convert over the given endpoint and params to the appropriate endpoint to be consumed on ElasticSearch's end. Since we don't necessarily need any customization of API inputs due to the requirements, Lambda Functions are a nice to have but not necessary.
 
-4. After the API Gateway is set up, this should allow for use for both the queries we were required to allow as well as the upload of our JSON files in bulk to ElasticSearch. The command should look something like the following:
+4. We were required to allow as well as the upload of our JSON files in bulk to ElasticSearch. The command should look something like the following:
 `curl -X POST https://search-andy-pc-es-fodzumsaleqe6aqic4xgsjrfay.us-west-1.es.amazonaws.com/_bulk --data-binary "@result-15.json" -H 'Content-Type: application/x-ndjson'`
+
+5. As of this commit, a simple API endpoint can be accessed here: https://ieqb5ik3z7.execute-api.us-west-1.amazonaws.com/search?q=PLAN_NAME:GOODWILL . You can switch out the param for any other type, which then is invokved through the API Gateway to get transactional data and any authorizations we may wish to set, and then hits the ElasticSearch endpoints for test.
