@@ -1,6 +1,6 @@
 # andy-pc-es
 
-##Overview
+## Overview
 This assignment's purpose is to successfully upload the given CSV file to ElasticSearch and allow for the dataset to be searched upon via the API Gateway. This was achieved through the following understandings:
 
 1. ElasticSearch takes JSON as its input, and in particular has the capability to take in bulk index operations in a single API call. In order to do this, the CSV file needed to be converted over to individual JSON objects as well as the action and metadata needed to be intertwined in the request. ElasticSearch also only takes bulk index operations at a set maximum, so for the sake of this exercise I used the following shell commands to split the original CSV file into a few different CSV files. The first commands split the files into 1000 line increments, and then the second file numbered the split files into something meaningful and able to be incremented on by the code.
