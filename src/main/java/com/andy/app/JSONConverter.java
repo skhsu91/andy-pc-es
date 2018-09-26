@@ -53,6 +53,7 @@ public class JSONConverter {
             jsonGenerator.writeEndObject();
             jsonGenerator.writeRaw("\n");
         }
+        jsonGenerator.close();
         bufferedReader.close();
     }
 }
