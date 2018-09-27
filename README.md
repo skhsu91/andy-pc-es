@@ -30,3 +30,17 @@ You can switch out the param for any other type, which then is invoked through t
 * A screenshot of the API Gateway flow is provided 
 
 ![API Gateway Screenshot](Screen%20Shot%202018-09-26%20at%208.44.23%20PM.png)
+
+## Next Steps and Notes
+
+The implementation is stable and working, but there are definitely some additions that given enough time that could be added.
+
+* Since the requirements were to simply be able to sort by those two columns in the CSV, there was not many changes necessary in order to justify the use of a Lambda Function. If we wanted to do queries of combinations of parameters then it may then be needed. From doing research, native support for Elastic Search on the API Gateway is not going to be available for a while.
+
+* Auth on both the ElasticSearch and the API Gateway are disabled just for ease of use for this coding assignment. In an ideal world, we do not want every single user to have read/write privileges to our datastore via ElasticSearch.
+
+* The input passthrough uses a similar query parameter as the original ElasticSearch's implementation of search queries. We can realistically move that into the request body if that helps with readability.
+
+* The CSV to JSON algorithm relies on splitting of the file initially as well as moving the header file into its own separate file to be read in. We can add this splitting logic as part of the convert() logic if need be.
+
+* Our response according to the both chart is also a simple output passthrough. We could have utilized lambda functions in order to parse through the output for only the things that matter, but nothing was specified in the requirements.
